@@ -44,6 +44,11 @@ DeepSeek Harness 提示词文件管理器：**在 DSH 设置面板里直接管�
 - 仅管理 `AGENTS.md`；`CLAUDE.md`、`AGENTS.local.md` 等只做提示，不在界面中编辑。
 - 保存由插件进程直接写文件，不经过会话文件沙箱；因此即使会话是 `workspace-write`，也能写入 `$DSH_HOME`（管理全局提示词所需）。
 - 独立页面与 DSH 设置页是两个入口；设置页内编辑是主要方式。
+- 设置页内「独立页面」按钮通过浏览器 `target="_blank"` 打开新窗口；若宿主环境拦截了弹出新窗口（例如桌面端默认禁止弹窗），按钮下方会显示完整地址，可手动复制到浏览器打开。
+
+## 给 Claude Code 的提示词 / Prompts for Claude Code
+
+本目录的 [CLAUDE_CODE_PROMPTS.md](CLAUDE_CODE_PROMPTS.md) 是一套完整的项目认知、缺陷审计、UX/性能/安全优化与测试补全提示词，包含环境事实、命令、热重载步骤与禁止事项。它不会被 DSH 当作工作区指令加载（文件名不是 `AGENTS.md`/`CLAUDE.md`）。
 
 ## License
 

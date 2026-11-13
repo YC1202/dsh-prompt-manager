@@ -75,6 +75,7 @@ window.__ModuleLoader__.load({
         readFailed: '读取失败',
         stateFailed: '无法读取作用域，请确认插件已启用。',
         pageLinkTitle: '在浏览器中打开独立页面',
+        pageUrlHint: '若按钮未能打开新窗口，可复制上面的地址到浏览器',
         notInjected: '保存内容会在下一次模型步骤生效',
       },
       en: {
@@ -135,6 +136,7 @@ window.__ModuleLoader__.load({
         readFailed: 'Read failed',
         stateFailed: 'Could not read scopes. Check that the plugin is enabled.',
         pageLinkTitle: 'Open the standalone page in a browser',
+        pageUrlHint: "If the button doesn't open a new window, copy the address above into a browser",
         notInjected: 'The saved content applies on the next model step',
       },
     };
@@ -155,6 +157,7 @@ window.__ModuleLoader__.load({
 .pm-btn.ghost:hover:not(:disabled) { background: var(--dsw-alias-bg-layer-2); }
 .pm-link { font-size: 11.5px; color: var(--dsw-alias-brand-primary); text-decoration: none; }
 .pm-link:hover { text-decoration: underline; }
+.pm-page-url { margin-top: 2px; font-size: 10.5px; color: var(--dsw-alias-label-secondary); font-family: ui-monospace, Consolas, monospace; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; cursor: text; }
 .pm-body { flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: 216px minmax(0, 1fr); gap: 10px; }
 .pm-side { min-height: 0; display: flex; flex-direction: column; border: 1px solid var(--dsw-alias-border-l1); border-radius: 10px; background: var(--dsw-alias-bg-layer-2); overflow: hidden; }
 .pm-search { margin: 8px; height: 28px; padding: 0 8px; border-radius: 7px; border: 1px solid var(--dsw-alias-border-l1); background: var(--dsw-alias-bg-layer-1); color: var(--dsw-alias-label-primary); font-size: 12px; outline: none; }
@@ -836,6 +839,8 @@ window.__ModuleLoader__.load({
         }, [file && file.content]);
 
         const backupPreview = backupPanel && backupPanel.preview;
+        const pageOrigin = (window.location && window.location.origin) || '';
+        const pageUrl = pageOrigin + PAGE_PATH;
 
         return h('div', { className: 'pm-page' },
           h('style', null, CSS),
@@ -843,6 +848,7 @@ window.__ModuleLoader__.load({
             h('div', { className: 'pm-head-main' },
               h('h2', { className: 'pm-title' }, t('title')),
               h('div', { className: 'pm-sub' }, t('subtitle') + ' · ' + groups.length + ' ' + t('scopeCount')),
+              h('div', { className: 'pm-page-url', title: t('pageUrlHint') }, pageUrl),
             ),
             h('div', { className: 'pm-head-actions' },
               status ? h('span', {
@@ -850,7 +856,7 @@ window.__ModuleLoader__.load({
               }, status.text) : null,
               h('button', { className: 'pm-btn ghost', type: 'button', onClick: () => refreshGroups(false) }, t('refresh')),
               h('a', {
-                className: 'pm-link', href: PAGE_PATH, target: '_blank', rel: 'noreferrer', title: t('pageLinkTitle'),
+                className: 'pm-link', href: pageUrl, target: '_blank', rel: 'noreferrer', title: t('pageLinkTitle'),
               }, t('openPage')),
             ),
           ),

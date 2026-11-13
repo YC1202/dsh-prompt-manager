@@ -210,6 +210,7 @@ global.window = {
       captured = entry
     },
   },
+  location: { origin: 'http://127.0.0.1:57993' },
   addEventListener() {},
   removeEventListener() {},
 }
@@ -331,6 +332,14 @@ function findItem(tree, pathFragment) {
   assert.equal(textarea.props.value, '# Global rule\n', 'loads the global file content')
   assert.ok(calls.some((call) => call.url.endsWith('/state')), 'fetches state')
   assert.ok(calls.some((call) => call.url.includes('/file?id=global')), 'fetches the initial file')
+
+  // The standalone-page link and its copyable fallback use the fully-qualified URL,
+  // not the bare "/prompt-manager" path — a relative href can resolve against the
+  // wrong base if the host embeds this settings page in an unexpected context.
+  const pageLink = findAll(lastTree, (node) => node.type === 'a' && node.props.className === 'pm-link')[0]
+  assert.ok(pageLink, 'renders the standalone-page link')
+  assert.equal(pageLink.props.href, 'http://127.0.0.1:57993/prompt-manager', 'link href is fully qualified')
+  assert.ok(initialText.includes('http://127.0.0.1:57993/prompt-manager'), 'shows a copyable fallback URL')
 
   // Switch to the missing workspace file: the empty state and create actions appear.
   const workspaceItem = findItem(lastTree, '~/demo/AGENTS.md')
