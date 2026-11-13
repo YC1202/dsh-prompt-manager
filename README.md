@@ -1,6 +1,18 @@
 # dsh-prompt-manager
 
+[![test](https://github.com/YC1202/dsh-prompt-manager/actions/workflows/test.yml/badge.svg)](https://github.com/YC1202/dsh-prompt-manager/actions/workflows/test.yml)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![node >=20](https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg)](package.json)
+
 DeepSeek Harness 提示词文件管理器：**在 DSH 设置面板里直接管理**全局与各工作区的 `AGENTS.md`。
+
+## 目录 / Contents
+
+- [使用 / Usage](#使用--usage)
+- [实现 / Implementation](#实现--implementation)
+- [配置 / Configuration](#配置--configuration)
+- [限制 / Limits](#限制--limits)
+- [License](#license)
 
 ## 使用 / Usage
 
@@ -35,4 +47,4 @@ DeepSeek Harness 提示词文件管理器：**在 DSH 设置面板里直接管�
 
 ## License
 
-MIT
+[MIT](LICENSE)

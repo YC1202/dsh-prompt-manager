@@ -3,6 +3,19 @@
   "version": "0.2.0",
   "private": true,
   "description": "DeepSeek Harness 提示词文件管理器：在 DSH 设置面板内编辑全局与各工作区的 AGENTS.md，Markdown 预览、模板、原子保存、自动备份与回滚。",
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "agents-md",
+    "prompt-manager"
+  ],
+  "homepage": "https://github.com/YC1202/dsh-prompt-manager#readme",
+  "bugs": "https://github.com/YC1202/dsh-prompt-manager/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YC1202/dsh-prompt-manager.git"
+  },
+  "author": "YC1202",
   "type": "module",
   "main": "index.js",
   "exports": {
