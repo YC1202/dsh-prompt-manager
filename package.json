@@ -1,0 +1,47 @@
+{
+  "name": "@local/dsh-prompt-manager",
+  "version": "0.2.0",
+  "private": true,
+  "description": "DeepSeek Harness 提示词文件管理器：在 DSH 设置面板内编辑全局与各工作区的 AGENTS.md，Markdown 预览、模板、原子保存、自动备份与回滚。",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "lib",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "README.md",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "engines": {
+    "dsh": ">=0.2.2-rc.3",
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "test": "node test/core.test.mjs && node test/plugin.test.mjs && node test/client.test.cjs",
+    "check": "node check.mjs"
+  },
+  "license": "MIT"
+}

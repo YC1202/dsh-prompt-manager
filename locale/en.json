@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Prompt file manager",
+    "description": "Manage AGENTS.md from a Prompt page inside DSH Settings: browse the global file and every registered workspace's file with search, edit with a live Markdown preview, insert templates, save atomically with Ctrl/Cmd+S, and resolve external-change conflicts. Every overwrite first writes a timestamped backup (latest 5 kept) that can be previewed and rolled back. Saves update the same files the standard preset's agent-instructions row reads on the next model step, with no Harness restart. The standalone /prompt-manager page and the /prompts command remain available."
+  }
+}

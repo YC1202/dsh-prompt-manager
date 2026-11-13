@@ -1,0 +1,21 @@
+# dsh-prompt-manager — bundle patch layer.
+# Inserted into the DSH profile tree when this package is installed as a bundle.
+#
+# The plugin needs no extra rows: it reuses the Web profile's `webServer`
+# (route registration on the already-running loopback listener) and the
+# `workspaceRegistry` (the Workspace list shown by the Web GUI). AGENTS.md
+# loading itself is owned by the standard agent preset, whose `agent-instructions`
+# row reads $DSH_HOME/AGENTS.md and each workspace's AGENTS.md on every model step,
+# so saving through this plugin applies without restarting DeepSeek Harness.
+- insert:
+    - id: prompt-manager
+      name: '@local/dsh-prompt-manager'
+      config:
+        # Timestamped `.AGENTS.md.<timestamp>.bak` copies kept per file.
+        maxBackups: 5
+        # Per-chain injection budget of the standard preset's agent-instructions row.
+        maxInjectBytes: 65536
+        # Hard cap for one prompt file (agent-instructions maxSourceBytes).
+        maxFileBytes: 1048576
+        # Path of the management page on the DSH Web origin.
+        pagePath: /prompt-manager

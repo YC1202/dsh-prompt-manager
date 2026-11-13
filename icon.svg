@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" role="img" aria-label="Prompt file manager">
+  <path d="M10.2 4.8h10.6l6.8 6.8v15.6a4.2 4.2 0 0 1-4.2 4.2H13.4a4.2 4.2 0 0 1-4.2-4.2V9a4.2 4.2 0 0 1 4.2-4.2Z" fill="none" stroke="#5B8CFF" stroke-width="2.1" stroke-linejoin="round"/>
+  <path d="M20.6 5.1v6.5h6.6" fill="none" stroke="#5B8CFF" stroke-width="2.1" stroke-linejoin="round"/>
+  <path d="M13.9 15.1h8.2M13.9 18.7h8.2M13.9 22.3h4.6" fill="none" stroke="#7EE0C3" stroke-width="1.9" stroke-linecap="round"/>
+  <path d="M26.8 20.1c.45 2.5 1.5 3.55 4 4-2.5.45-3.55 1.5-4 4-.45-2.5-1.5-3.55-4-4 2.5-.45 3.55-1.5 4-4Z" fill="#F5B864"/>
+  <path d="M13.8 28.4h4.6" fill="none" stroke="#F5B864" stroke-width="1.9" stroke-linecap="round"/>
+</svg>
